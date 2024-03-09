@@ -30,8 +30,23 @@
   
   <main class="bg-very-light-gray dark:bg-very-dark-blue-dark-mode text-very-dark-blue-light-mode dark:text-white min-h-screen py-4 md:py-8">
     <!-- Search and Filter -->
-    <section class="px-4 md:px-20">
-      Search and Filter
+    <section class="px-4 md:px-20 flex flex-col md:flex-row max-md:gap-8 justify-between">
+      <div
+        role="search" 
+        class="bg-white dark:bg-dark-blue w-full md:w-96 pl-6 h-12 rounded flex gap-4 items-center shadow"
+      >
+        <i class="fas fa-search text-inherit text-sm"></i>
+        <input 
+          role="searchbox"
+          class="placeholder:text-inherit bg-inherit dark:bg-inherit focus:bg-inherit placeholder:text-sm h-full w-full outline-none rounded" 
+          type="text" 
+          placeholder="Search a country...">
+      </div>
+      <div 
+        class="bg-white dark:bg-dark-blue w-3/5 md:w-52 px-6 h-12 rounded shadow grid items-center text-sm"
+      >
+        Filter by Region
+      </div>
     </section>
 
     <!-- Countries Display Section -->
