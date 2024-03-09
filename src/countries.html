@@ -10,73 +10,76 @@
   <link rel="stylesheet" type="text/css" href="./css/output.css">
 
   <title>Custom Component</title>
+
+  <script src="https://kit.fontawesome.com/65fb8095e7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header class="">
-    <div>
-      Where in the world
+  <header class="flex flex-row justify-between items-center px-4 md:px-20 py-6 shadow bg-white text-very-dark-blue-light-mode dark:bg-dark-blue dark:text-white">
+    <div class="text-sm md:text-2xl font-extrabold">
+      Where in the world?
     </div>
-    <div>
-      Dark mode
-    </div>
+    <button class="max-md:text-sm font-medium flex items-center gap-2">
+      <span>
+        <i class="fas fa-moon -rotate-6"></i>
+      </span>
+      <span>
+        Dark mode
+      </span>
+    </button>
   </header>
-  <main>
-    <!-- Search Filter Section -->
-    <section>
-      <!-- Search Bar -->
-      <div>
+  
 
-        <input role="search" type="text">
-      </div>
+
+
+  <!-- <main class="flex flex-col gap-8 px-4 md:px-20 pt-8 min-h-screen bg-very-light-gray dark:bg-very-dark-blue-dark-mode text-very-dark-blue-light-mode dark:text-white"> -->
+    <!-- Search Filter Section -->
+    <!-- <section class="flex justify-between items-center"> -->
+      <!-- Search Bar -->
+      <!-- <div class="flex items-center rounded gap-5 h-12 px-8 bg-white dark:bg-dark-blue shadow"> -->
+        <!-- Search Icon -->
+        <!-- <i class="fa-solid fa-magnifying-glass"></i>
+        <input class="md:w-96 h-full bg-white text-very-dark-blue-light-mode dark:bg-dark-blue placeholder:text-sm" role="search" type="text" placeholder="Search a country">
+      </div> -->
 
       <!-- Filter Dropdown -->
-      <select>
-        <option>
-          Africa
-        </option>
-        <option>
-          America
-        </option>
-        <option>
-          Asia
-        </option>
-        <option>
-          Europe
-        </option>
-        <option>
-          Oceania
-        </option>
-      </select>
-    </section>
+      <!-- <div class="h-12 w-60">
+        <button class="h-full px-6 w-full inline-block bg-white dark:bg-dark-blue rounded shadow shadow">Filter by Region</button>
+        <ul class="hidde w-full rounded overflow-hidden mt-2 px-6 py-4 bg-white dark:bg-dark-blue shadow">
+          <li> Africa </li>
+          <li> America </li>
+          <li> Asia </li>
+          <li> Europe </li>
+          <li> Oceania </li>
+        </ul>
+      </div>
+    </section> -->
 
     <!-- Countries Section -->
-    <section>
+    <!-- <section class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <div>
+        <img 
+          src="https://flagcdn.com/w320/zw.png" 
+          alt="The flag of Zimbabwe is composed of seven equal horizontal bands of green, yellow, red, black, red, yellow and green, with a white isosceles triangle superimposed on the hoist side of the field. This triangle is edged in black, spans about one-fourth the width of the field and has its base on the hoist end. A yellow Zimbabwe bird superimposed on a five-pointed red star is centered in the triangle.">
+
         <div>
-          <img 
-            src="https://flagcdn.com/w320/zw.png" 
-            alt="The flag of Zimbabwe is composed of seven equal horizontal bands of green, yellow, red, black, red, yellow and green, with a white isosceles triangle superimposed on the hoist side of the field. This triangle is edged in black, spans about one-fourth the width of the field and has its base on the hoist end. A yellow Zimbabwe bird superimposed on a five-pointed red star is centered in the triangle.">
+          <h2>
+            Zimbabwe
+          </h2>
 
-          <div>
-            <h2>
-              Zimbabwe
-            </h2>
+          <p>
+            Population: 14862927
+          </p>
 
-            <p>
-              Population: 14862927
-            </p>
+          <p>
+            Region: Africa
+          </p>
 
-            <p>
-              Region: Africa
-            </p>
-
-            <p>
-              Capital: Harare
-            </p>
-          </div>
+          <p>
+            Capital: Harare
+          </p>
         </div>
       </div>
-    </section>
-  </main>
+    </section> -->
+  <!-- </main> -->
 </body>
 </html>
