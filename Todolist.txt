@@ -1,0 +1,44 @@
+Structuring and Styling
+
+Countries Page <
+Header -
+	Logo
+	Dark Mode Toggler
+Main -
+	Search and Filter Section
+		SearchBox
+		Filter Dropdown
+	Countries Grid Section
+		Country Box
+
+Country Page <
+Header -
+	Logo
+	Dark Mode Toggler
+Main -
+	Back Link
+
+	Countries Details Banner
+		Image Flag
+		Country Details
+
+Logic
+Countries Page <
+Header -
+	Dark Mode Toggler
+Main -
+	Search and Filter Section
+		SearchBox
+		Filter Dropdown
+	Countries Grid Section
+		Country Box
+
+Country Page <
+Header -
+	Dark Mode Toggler
+Main -
+	Back Link
+
+	Countries Details Banner
+		Image Flag
+		Country Details
