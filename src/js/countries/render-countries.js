@@ -32,7 +32,7 @@ function renderCountries(countries) {
 function COUNTRY(country) {
 	let html =
 	`
-	<a class="shadow" href="#!">
+	<a data-name="${country.commonName}" onClick="saveCountryName(this.getAttribute('data-name'))" class="shadow" href="#!">
       <img 
         class="min-w-full h-auto rounded-t" 
         src="${country.imgUrl}" 
@@ -73,3 +73,6 @@ function COUNTRY(country) {
 
 fetchCountries()
 
+function saveCountryName(name) {
+	localStorage.setItem('country-name', name)
+}
