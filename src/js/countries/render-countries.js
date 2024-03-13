@@ -7,7 +7,7 @@ async function fetchCountries() {
 
 	const countries = await response.json()
 
-	// console.log(countries[0])
+	// console.log(countries[1])
 
 	renderCountries(countries)
 }
@@ -32,7 +32,12 @@ function renderCountries(countries) {
 function COUNTRY(country) {
 	let html =
 	`
-	<a data-name="${country.commonName}" onClick="saveCountryName(this.getAttribute('data-name'))" class="shadow" href="#!">
+	<a 
+    data-name="${country.commonName}" 
+    onClick="saveCountryName(this.getAttribute('data-name'))" 
+    class="shadow flex flex-col justify-between bg-white dark:bg-dark-blue" 
+    href="./country.html"
+  >
       <img 
         class="min-w-full h-auto rounded-t" 
         src="${country.imgUrl}" 

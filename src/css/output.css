@@ -687,6 +687,10 @@ video {
   border-top-right-radius: 0.25rem;
 }
 
+.border {
+  border-width: 1px;
+}
+
 .bg-inherit {
   background-color: inherit;
 }
