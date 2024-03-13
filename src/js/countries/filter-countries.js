@@ -1,20 +1,18 @@
-async function fetchCountries() {
-	const CountriesEndPoint = 'https://restcountries.com/v3.1/all'
-	const response = await fetch(CountriesEndPoint)
-	
-	if(!response.ok)
-		console.log(response)
+document.querySelector('#countrySearchBox').addEventListener('blur', searchCountries)
 
-	const countries = await response.json()
-  window.countries = countries
+function searchCountries(e) {
+  const searchTxt = e.target.value
+  
+  const filteredCountries = window.countries.filter(country => {
+    return country.name.common.toLowerCase().includes(searchTxt.toLowerCase())
+  })
 
-	// console.log(countries[1])
-
-	renderCountries(countries)
+	renderCountries(filteredCountries)
 }
 
 function renderCountries(countries) {
 	const countriesWrapper = document.querySelector('#countries-wrapper')
+
   countriesWrapper.innerHTML = ""
 
 	countries.forEach( (country) => {
