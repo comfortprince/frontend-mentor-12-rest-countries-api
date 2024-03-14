@@ -47,7 +47,8 @@
 
       <!-- Filter Dropdown -->
       <div class="w-3/5 md:w-52 h-12 relative">
-        <button 
+        <button
+          id="region-filter-toggler" 
           class="bg-white dark:bg-dark-blue px-6 h-full w-full rounded shadow inline-flex items-center justify-between text-sm"
         >
           <span>
@@ -57,20 +58,20 @@
             <i class="fa-solid fa-angle-down"></i>
           </span>
         </button>
-        <div class="hidden bg-white dark:bg-dark-blue rounded shadow absolute w-full mt-1 overflow-hidden">
-          <div class="py-2 px-6 hover:bg-very-light-gray dark:hover:bg-very-dark-blue-dark-mode">
+        <div data-status="" class="active:block hidden bg-white dark:bg-dark-blue rounded shadow absolute w-full mt-1 overflow-hidden">
+          <div class="region-options py-2 px-6 hover:bg-very-light-gray dark:hover:bg-very-dark-blue-dark-mode">
             Africa
           </div>
-          <div class="py-1 px-6 hover:bg-very-light-gray dark:hover:bg-very-dark-blue-dark-mode">
+          <div class="region-options py-1 px-6 hover:bg-very-light-gray dark:hover:bg-very-dark-blue-dark-mode">
             Asia
           </div>
-          <div class="py-1 px-6 hover:bg-very-light-gray dark:hover:bg-very-dark-blue-dark-mode">
+          <div class="region-options py-1 px-6 hover:bg-very-light-gray dark:hover:bg-very-dark-blue-dark-mode">
             America
           </div>
-          <div class="py-1 px-6 hover:bg-very-light-gray dark:hover:bg-very-dark-blue-dark-mode">
+          <div class="region-options py-1 px-6 hover:bg-very-light-gray dark:hover:bg-very-dark-blue-dark-mode">
             Europe
           </div>
-          <div class="py-1 px-6 hover:bg-very-light-gray dark:hover:bg-very-dark-blue-dark-mode">
+          <div class="region-options py-1 px-6 hover:bg-very-light-gray dark:hover:bg-very-dark-blue-dark-mode">
             Oceania
           </div>
         </div>
@@ -90,6 +91,8 @@
   <script src="./js/dark-mode-toggler.js"></script>
   <script src="./js/countries/render-countries.js"></script>
   <script src="./js/countries/filter-countries.js"></script>
+  <script src="./js/countries/custom-select.js"></script>
+  <script src="./js/countries/filter-by-region.js"></script>
 </body>
 </html>
 
