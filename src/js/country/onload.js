@@ -3,11 +3,11 @@ window.onload = () => {
 }
 
 function setTheme() {
-	if(localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+	if(localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
 		document.documentElement.setAttribute('class', 'dark')
-		localStorage.theme = 'dark'
-	}else if(localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+		localStorage.setItem('theme', 'dark')
+	}else if(localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
 		document.documentElement.setAttribute('class', 'light')
-		localStorage.theme = 'light'
+		localStorage.setItem('theme', 'light')
 	}
 }
