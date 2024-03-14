@@ -1,4 +1,6 @@
 async function fetchCountries() {
+  showLoading();
+
 	const CountriesEndPoint = 'https://restcountries.com/v3.1/all'
 	const response = await fetch(CountriesEndPoint)
 	
@@ -11,6 +13,16 @@ async function fetchCountries() {
 	// console.log(countries[1])
 
 	renderCountries(countries)
+
+  hideLoading();
+}
+
+function showLoading() {
+  document.querySelector('#loading-el').setAttribute('data-status', 'active')
+}
+
+function hideLoading() {
+  document.querySelector('#loading-el').setAttribute('data-status', '')
 }
 
 function renderCountries(countries) {

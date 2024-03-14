@@ -27,7 +27,14 @@
       </span>
     </button>
   </header>
-  
+
+  <div data-status="active" id="loading-el" class="hidden active:grid place-items-center text-2xl text-white fixed top-0 w-full h-full bg-black bg-opacity-50 z-10">
+    <div class="flex items-center gap-3 animate-pulse">
+      Loading 
+      <span class="w-2 h-2 rounded-full inline-block bg-white animate-pulse"></span>
+    </div>
+  </div>
+
   <main class="bg-very-light-gray dark:bg-very-dark-blue-dark-mode text-very-dark-blue-light-mode dark:text-white min-h-screen py-4 md:py-8">
     <!-- Search and Filter -->
     <section class="px-4 md:px-20 flex flex-col md:flex-row max-md:gap-8 justify-between">
@@ -87,6 +94,7 @@
     </section>
   </main>
 
+  <script src="./js/countries/loading-state.js"></script>
   <script src="./js/countries/onload.js"></script>
   <script src="./js/dark-mode-toggler.js"></script>
   <script src="./js/countries/render-countries.js"></script>
