@@ -7,13 +7,38 @@ async function fetchCountry() {
 	if(!response.ok)
 		console.log(response)
 
-	const country = await response.json()
+	const countrys = await response.json()
 
-	renderCountryDetails(country)
+	renderCountryDetails(countrys[0])
 }
 
-function renderCountryDetails(country) {
+async function renderCountryDetails(country) {
 	const countryDetails = document.querySelector('#country-details')
+
+  const borderCountries = []
+
+  if('borders' in country){
+    await fetch(`https://restcountries.com/v3.1/alpha?codes=${(function () {
+      let str = ""
+      for(let key in country.borders){
+        if(country.borders.hasOwnProperty(key)){
+          str += country.borders[key] + ","
+        }
+      }
+      return str
+    })()}`)
+    .then((response)=>{
+      if(!response.ok)
+        throw new Error("Failed to fetch border countries.")
+
+      return response.json()
+    })
+    .then((data)=>{
+      data.forEach( function(country) {
+        borderCountries.push(country.name.common)
+      });
+    })
+  }
 
   let countryObj = {
     imgUrl: country.flags.png,
@@ -26,13 +51,11 @@ function renderCountryDetails(country) {
     topLevelDomain: country.tld,
     currencies: country.currencies,         // Some countries have multiple currencies
     languages: country.languages,           // Some countries have Multiple languages
-    borderCountries: country.borders,       // Some countries have Multiple border countries
+    borderCountries: borderCountries,       // Some countries have Multiple border countries
     capital: country.capital
   }
 
-  console.log(countryObj)
-
-	// countryDetails.innerHTML += COUNTRY_DETAILS(countryObj)
+	countryDetails.innerHTML += COUNTRY_DETAILS(countryObj)
 }
 
 function COUNTRY_DETAILS(country) {
@@ -58,9 +81,22 @@ function COUNTRY_DETAILS(country) {
             <span class="font-semibold">
               Native Name: 
             </span>
-            <span>
-              Belgie
-            </span>
+            ${(function () {
+              let innerHTML = ""
+
+              for(let key in country.nativeName){
+                if(country.nativeName.hasOwnProperty(key)){
+                  innerHTML += 
+                  `
+                    <span>
+                      ${country.nativeName[key].common}, 
+                    </span>
+                  `
+                }
+              }
+
+              return innerHTML
+            })()}
           </p>
           <p>
             <span class="font-semibold">
@@ -108,17 +144,40 @@ function COUNTRY_DETAILS(country) {
             <span class="font-semibold">
               Currencies: 
             </span>
-            <span>
-              Euro
-            </span>
+            ${(function () {
+              let innerHtml = ""
+
+              for(let key in country.currencies){
+                if(country.currencies.hasOwnProperty(key)){
+                  innerHtml += 
+                  `
+                    <span>
+                      ${key}
+                    </span>
+                  `
+                }
+              }
+
+              return innerHtml;
+            })()}
           </p>
           <p>
             <span class="font-semibold">
               Languages: 
             </span>
-            <span>
-              Dutch, French, German
-            </span>
+            ${(function() {
+              let innerHtml = "<span>"
+
+              for(let key in country.languages){
+                if(country.languages.hasOwnProperty(key)){
+                  value = country.languages[key]
+                  innerHtml += value + ', '
+                }
+              }
+
+              innerHtml += "</span>"
+              return innerHtml
+            })()}
           </p>
         </div>
       </div>
@@ -127,15 +186,20 @@ function COUNTRY_DETAILS(country) {
           Border Countries:
         </div>
         <div class="flex flex-wrap gap-2">
-          <span class="inline-block bg-white dark:bg-dark-blue px-8 shadow font-light py-2">
-            France
-          </span>
-          <span class="inline-block bg-white dark:bg-dark-blue px-8 shadow font-light py-2">
-            France
-          </span>
-          <span class="inline-block bg-white dark:bg-dark-blue px-8 shadow font-light py-2">
-            France
-          </span>
+          ${(function () {
+            let innerHtml = ""
+
+            for(let i = 0; i != country.borderCountries.length; ++i){
+              innerHtml +=
+              `
+                <span class="inline-block bg-white dark:bg-dark-blue px-8 shadow font-light py-2">
+                  ${country.borderCountries[i]}
+                </span>
+              `
+            }
+
+            return innerHtml
+          })()}
         </div>
       </div>
     </div>
